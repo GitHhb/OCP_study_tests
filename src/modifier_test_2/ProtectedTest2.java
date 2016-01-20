@@ -16,18 +16,8 @@ public class ProtectedTest2 extends ProtectedTest1 {
 class Unrelated2 {
     public void unrelatedIn2(){
         ProtectedTest2 p = new ProtectedTest2();
-//        p.protectedVar2 = "hoi";
+        //p.protectedVar = "hoi";
         //p.protectedMethod();
-
-    }
-}
-
-class Test {
-
-    void somemethod(int a){System.out.println("int"); }
-    void somemethod(double a){System.out.println("Double"); }
-    public static void main(String args[]) {
-
 
     }
 }
