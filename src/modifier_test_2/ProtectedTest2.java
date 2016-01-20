@@ -16,7 +16,7 @@ public class ProtectedTest2 extends ProtectedTest1 {
 class Unrelated2 {
     public void unrelatedIn2(){
         ProtectedTest2 p = new ProtectedTest2();
-        p.protectedVar = "hoi";
+        //p.protectedVar = "hoi";
         //p.protectedMethod();
 
     }
