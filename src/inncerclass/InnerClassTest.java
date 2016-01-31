@@ -52,7 +52,7 @@ class OtherClass {
         System.out.println(y.mainVar);
         System.out.println(OuterClass.InnerClass.innerStatMainVar);
         System.out.println(x.innerMainVar);
-        System.out.println(x.statMainVar);
+        //System.out.println(x.statMainVar);
     }
 
     //void some(){ o.o.o.o.o.o.y.outershow();}
