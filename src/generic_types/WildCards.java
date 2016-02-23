@@ -1,4 +1,4 @@
-package generic_types;
+/*package generic_types;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,3 +30,4 @@ public class WildCards {
 class Gift{}
 class Book extends Gift {}
 class Phone extends Gift {}
+*/
