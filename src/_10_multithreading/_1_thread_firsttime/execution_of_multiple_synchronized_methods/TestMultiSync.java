@@ -16,6 +16,22 @@ public class TestMultiSync {
         t3.start();
         t4.start();
         t5.start();
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+        synchronized (multi) {
+            System.out.println("Sync in MAIN - " + Thread.currentThread().getName());
+            for (int i = 0; i<10; i++){
+                System.out.println("Main - " +i);
+                if (i%5==0) try {
+                    multi.wait(1000);
+                } catch (InterruptedException e) {
+                    System.out.println(e);
+                }
+            }
+        }
     }
 }
 
