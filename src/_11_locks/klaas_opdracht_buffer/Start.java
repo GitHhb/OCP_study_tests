@@ -2,6 +2,7 @@ package _11_locks.klaas_opdracht_buffer;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Start {
     //Buffer b1 = new BlockingBuffer();
@@ -13,6 +14,11 @@ public class Start {
         i = arl.get(0);
         System.out.println("Arralist get:" + i);*/
         //Integer i;
+        //GenericTest<Integer> git = new GenericTest<>();
+        //git.set(3);
+        //Integer xi;
+        //xi = git.get();
+        //System.out.println("Generictest get: " + git.get());
 
         // Init
         BlockingBuffer<Integer> buf = new BlockingBuffer<>(5);
@@ -27,7 +33,7 @@ public class Start {
 }
 
 class Producer implements Runnable {
-    Buffer buf;
+    Buffer<Integer> buf;
     SecureRandom random = new SecureRandom();
     Producer(Buffer value) { buf = value;};
     public void run() {
@@ -50,7 +56,7 @@ class Producer implements Runnable {
 
 class Consumer implements Runnable {
     ArrayList<Integer> ali = new ArrayList<>();
-    Buffer buf;
+    Buffer<Integer> buf;
     Integer frombuf;
     SecureRandom random = new SecureRandom();
     Consumer(Buffer value) { buf = value;};
@@ -61,8 +67,8 @@ class Consumer implements Runnable {
         for (int i = 0; i < 11; i++) {
             try {
                 //System.out.println("Return type: " + buf.blockingGet().getClass().getName());
-                frombuf = (Integer)buf.blockingGet();
-                //frombuf = buf.blockingGet();
+                //frombuf = (Integer)buf.blockingGet();
+                frombuf = buf.blockingGet();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

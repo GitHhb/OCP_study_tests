@@ -10,11 +10,11 @@ public class BlockingBuffer<T> implements Buffer<T> {
     private int bufhead = 0;   // index to head of buffer
     private int buftail = 0;   // index to tail of buffer
     private int bufsize = 0;    // current buffer size
-    private Object[] buf;
+    private T[] buf;
 
     public BlockingBuffer (int bufsize) {
         MAXBUFSIZE = Math.max(1, bufsize);  // min bufsize == 1
-        buf = new Object[MAXBUFSIZE];
+        buf = (T[]) new Object[MAXBUFSIZE];
     }
 
     private boolean bufIsFull() { return bufsize == MAXBUFSIZE; }
@@ -58,8 +58,14 @@ public class BlockingBuffer<T> implements Buffer<T> {
         System.out.printf("\t\t\t %3s <= ", (T)buf[index]);
         printBuffer();
         System.out.println("Type: " + buf[index].getClass().getName());
-        return (T) buf[index];
+        return  buf[index];
     }
 
 }
 
+
+class GenericTest<T> {
+    T[] x = (T[]) new Object[2];
+    void set(T value) { x[0] = value;}
+    T get(){ return x[0];}
+}
