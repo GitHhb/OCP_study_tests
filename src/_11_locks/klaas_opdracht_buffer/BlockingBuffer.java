@@ -22,6 +22,8 @@ public class BlockingBuffer<T> implements Buffer<T> {
 
     private void printBuffer() {
         for (int i = 0; i < MAXBUFSIZE; i++) {
+            System.out.print((i==buftail) ? "<" : " ");
+            System.out.print((i==bufhead) ? ">" : " ");
             System.out.printf("%3s ",
                     (buftail < bufhead && i>=buftail && i<bufhead) ||
                             (buftail > bufhead && (i<bufhead || i>=buftail)) ||
@@ -57,15 +59,7 @@ public class BlockingBuffer<T> implements Buffer<T> {
         notifyAll();
         System.out.printf("\t\t\t %3s <= ", (T)buf[index]);
         printBuffer();
-        System.out.println("Type: " + buf[index].getClass().getName());
-        return  buf[index];
+        return buf[index];
     }
-
 }
 
-
-class GenericTest<T> {
-    T[] x = (T[]) new Object[2];
-    void set(T value) { x[0] = value;}
-    T get(){ return x[0];}
-}
